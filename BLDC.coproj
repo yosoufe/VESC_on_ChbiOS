@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - 1.7.8" name="BLDC">
+  <Target name="BLDC" isCurrent="1">
+    <Device manufacturerId="9" manufacturerName="ST" chipId="342" chipName="STM32F405RG" boardId="" boardName=""/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="1"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value="-std=gnu99; -mno-thumb-interwork; -Wdouble-promotion; -fsingle-precision-constant;  "/>
+        <Option name="SupportCPlusplus" value="0"/>
+        <Option name="FPU" value="2"/>
+        <Includepaths>
+          <Includepath path="."/>
+          <Includepath path="chibios_3.0.5/os/hal/include"/>
+          <Includepath path="cmsis"/>
+          <Includepath path="cmsis_boot"/>
+          <Includepath path="hwconf"/>
+          <Includepath path="chibios_3.0.5/os/rt/include"/>
+          <Includepath path="chibios_3.0.5/os/rt/ports/armcmx"/>
+          <Includepath path="chibios_3.0.5/os/common/ports/armcmx/devices/stm32f4xx"/>
+          <Includepath path="chibios_3.0.5/os/rt/ports"/>
+          <Includepath path="chibios_3.0.5/os/hal/ports/common/armcmx"/>
+          <Includepath path="chibios_3.0.5/os/hal/ports/stm32/stm32f4xx"/>
+          <Includepath path="chibios_3.0.5/ext/stdperiph_stm32f4/inc"/>
+          <Includepath path="chibios_3.0.5/os/hal/ports/stm32/lld"/>
+          <Includepath path="chibios_3.0.5/os/hal/ports/stm32/lld/timv1"/>
+          <Includepath path="chibios_3.0.5/os/hal/ports/stm32/lld/gpiov2"/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="STM32F405RG"/>
+          <Define name="STM32F4XX"/>
+          <Define name="BOARD_OTG_NOVBUSSENS"/>
+          <Define name="THUMB"/>
+          <Define name="USE_STDPERIPH_DRIVER"/>
+          <Define name="STM32F405xx"/>
+          <Define name="CORTEX_USE_FPU"/>
+          <Define name="__FPU_USED"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="0"/>
+        <Option name="nostartfiles" value="1"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
+        <Option name="UserEditLinker" value="-lm; --defsym=__process_stack_size__=0x400; --defsym=__main_stack_size__=0x400; "/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00100000" startValue="0x08000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00020000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
+        </MemoryAreas>
+        <LocateLinkFile path="./ld_eeprom_emu.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="BLDC"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="J-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\CooCox\JLink_V498\JLinkGDBServerCL.exe"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="HW RESET"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2331"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_1024.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./">
+    <Component id="54" name="M4 CMSIS Core" path="" type="2"/>
+    <Component id="500" name="CMSIS BOOT" path="" type="2"/>
+  </Components>
+  <Files>
+    <File name="app_adc.c" path="applications/app_adc.c" type="1"/>
+    <File name="OS/STM/mac_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/mac_lld.h" type="1"/>
+    <File name="OS/chqueues.h" path="ChibiOS_3.0.5/os/rt/include/chqueues.h" type="1"/>
+    <File name="cmsis/core_cm4_simd.h" path="ChibiOS_3.0.5/os/ext/CMSIS/include/core_cm4_simd.h" type="1"/>
+    <File name="cmsis/core_cmFunc.h" path="ChibiOS_3.0.5/os/ext/CMSIS/include/core_cmFunc.h" type="1"/>
+    <File name="OS/HAL/pwm.h" path="ChibiOS_3.0.5/os/hal/include/pwm.h" type="1"/>
+    <File name="OS/chschd.c" path="ChibiOS_3.0.5/os/rt/src/chschd.c" type="1"/>
+    <File name="app.c" path="applications/app.c" type="1"/>
+    <File name="NRF/spi_sw.c" path="nrf/spi_sw.c" type="1"/>
+    <File name="OS/HAL/dac.c" path="ChibiOS_3.0.5/os/hal/src/dac.c" type="1"/>
+    <File name="terminal.h" path="terminal.h" type="1"/>
+    <File name="main.h" path="main.h" type="1"/>
+    <File name="OS" path="" type="2"/>
+    <File name="OS/chheap.h" path="ChibiOS_3.0.5/os/rt/include/chheap.h" type="1"/>
+    <File name="OS/chstreams.h" path="ChibiOS_3.0.5/os/rt/include/chstreams.h" type="1"/>
+    <File name="OS/STM/serial_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/USARTv1/serial_lld.c" type="1"/>
+    <File name="OS/HAL/st_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/TIMv1/st_lld.c" type="1"/>
+    <File name="OS/HAL/stm32_isr.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_isr.h" type="1"/>
+    <File name="OS/chqueues.c" path="ChibiOS_3.0.5/os/rt/src/chqueues.c" type="1"/>
+    <File name="conf_general.c" path="conf_general.c" type="1"/>
+    <File name="app_nunchuk.c" path="applications/app_nunchuk.c" type="1"/>
+    <File name="OS/HAL/serial.c" path="ChibiOS_3.0.5/os/hal/src/serial.c" type="1"/>
+    <File name="app_ppm.c" path="applications/app_ppm.c" type="1"/>
+    <File name="OS/chschd.h" path="ChibiOS_3.0.5/os/rt/include/chschd.h" type="1"/>
+    <File name="datatypes.h" path="datatypes.h" type="1"/>
+    <File name="OS/STM/stm32_rcc.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_rcc.h" type="1"/>
+    <File name="OS/HAL/pwm_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/TIMv1/pwm_lld.c" type="1"/>
+    <File name="OS/chevents.c" path="ChibiOS_3.0.5/os/rt/src/chevents.c" type="1"/>
+    <File name="OS/STM/usb_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/OTGv1/usb_lld.h" type="1"/>
+    <File name="hwversions/hw_r2.h" path="hwconf/hw_r2.h" type="1"/>
+    <File name="timeout.c" path="timeout.c" type="1"/>
+    <File name="OS/STM/stm32f4xx_rtc.h" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/inc/stm32f4xx_rtc.h" type="1"/>
+    <File name="OS/STM/stm32_otg.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/OTGv1/stm32_otg.h" type="1"/>
+    <File name="digital_filter.h" path="digital_filter.h" type="1"/>
+    <File name="mcuconf.h" path="mcuconf.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_gpio.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_gpio.c" type="1"/>
+    <File name="OS/STM/stm32_registry.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_registry.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_wwdg.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_wwdg.c" type="1"/>
+    <File name="hwversions/hw_45.h" path="hwconf/hw_45.h" type="1"/>
+    <File name="commands.c" path="commands.c" type="1"/>
+    <File name="OS/HAL/i2c.c" path="ChibiOS_3.0.5/os/hal/src/i2c.c" type="1"/>
+    <File name="OS/STM/stm32f4xx_can.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_can.c" type="1"/>
+    <File name="hwversions/hw_r2.c" path="hwconf/hw_r2.c" type="1"/>
+    <File name="OS/chcore_timer.h" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/chcore_timer.h" type="1"/>
+    <File name="hwversions/hw_45.c" path="hwconf/hw_45.c" type="1"/>
+    <File name="OS/chevents.h" path="ChibiOS_3.0.5/os/rt/include/chevents.h" type="1"/>
+    <File name="conf_general.h" path="conf_general.h" type="1"/>
+    <File name="hwversions/hw_40.h" path="hwconf/hw_40.h" type="1"/>
+    <File name="OS/STM/mac_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/mac_lld.c" type="1"/>
+    <File name="app_uartcomm.c" path="applications/app_uartcomm.c" type="1"/>
+    <File name="digital_filter.c" path="digital_filter.c" type="1"/>
+    <File name="OS/chtypes.h" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/compilers/GCC/chtypes.h" type="1"/>
+    <File name="commands.h" path="commands.h" type="1"/>
+    <File name="terminal.c" path="terminal.c" type="1"/>
+    <File name="OS/chheap.c" path="ChibiOS_3.0.5/os/rt/src/chheap.c" type="1"/>
+    <File name="OS/HAL/serial.h" path="ChibiOS_3.0.5/os/hal/include/serial.h" type="1"/>
+    <File name="NRF/rf.c" path="nrf/rf.c" type="1"/>
+    <File name="main.c" path="main.c" type="1"/>
+    <File name="OS/HAL/hal_mmcsd.c" path="ChibiOS_3.0.5/os/hal/src/hal_mmcsd.c" type="1"/>
+    <File name="OS/STM/icu_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/TIMv1/icu_lld.c" type="1"/>
+    <File name="mcpwm_foc.h" path="mcpwm_foc.h" type="1"/>
+    <File name="OS/STM/sdc_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/sdc_lld.h" type="1"/>
+    <File name="NRF" path="" type="2"/>
+    <File name="OS/STM/stm32f4xx_pwr.h" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/inc/stm32f4xx_pwr.h" type="1"/>
+    <File name="OS/HAL/hal_mmcsd.h" path="ChibiOS_3.0.5/os/hal/include/hal_mmcsd.h" type="1"/>
+    <File name="app_sten.c" path="applications/app_sten.c" type="1"/>
+    <File name="OSVarious/evtimer.c" path="ChibiOS_3.0.5/os/various/evtimer.c" type="1"/>
+    <File name="OS/HAL/hal.c" path="ChibiOS_3.0.5/os/hal/src/hal.c" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
+    <File name="cmsis_boot/startup/crt1.c" path="ChibiOS_3.0.5/os/common/ports/ARMCMx/compilers/GCC/crt1.c" type="1"/>
+    <File name="OS/STM/pal_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/GPIOv2/pal_lld.c" type="1"/>
+    <File name="OS/HAL/memstreams.h" path="ChibiOS_3.0.5/os/hal/lib/streams/memstreams.h" type="1"/>
+    <File name="OS/chvt.h" path="ChibiOS_3.0.5/os/rt/include/chvt.h" type="1"/>
+    <File name="wwdog.c" path="wwdog.c" type="1"/>
+    <File name="packet.h" path="packet.h" type="1"/>
+    <File name="isr_vector_table.h" path="isr_vector_table.h" type="1"/>
+    <File name="OS/HAL/pal.h" path="ChibiOS_3.0.5/os/hal/include/pal.h" type="1"/>
+    <File name="OS/HAL/usb.c" path="ChibiOS_3.0.5/os/hal/src/usb.c" type="1"/>
+    <File name="OS/STM/usb_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/OTGv1/usb_lld.c" type="1"/>
+    <File name="timeout.h" path="timeout.h" type="1"/>
+    <File name="OS/HAL/hal.h" path="ChibiOS_3.0.5/os/hal/include/hal.h" type="1"/>
+    <File name="OS/HAL/rtc.c" path="ChibiOS_3.0.5/os/hal/src/rtc.c" type="1"/>
+    <File name="OS/chregistry.h" path="ChibiOS_3.0.5/os/rt/include/chregistry.h" type="1"/>
+    <File name="OS/STM/pal_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/GPIOv2/pal_lld.h" type="1"/>
+    <File name="OS/HAL/hal_queues.h" path="ChibiOS_3.0.5/os/hal/include/hal_queues.h" type="1"/>
+    <File name="encoder.c" path="encoder.c" type="1"/>
+    <File name="OS/HAL/usb.h" path="ChibiOS_3.0.5/os/hal/include/usb.h" type="1"/>
+    <File name="OS/STM/stm32_dma.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_dma.c" type="1"/>
+    <File name="OS/STM/icu_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/TIMv1/icu_lld.h" type="1"/>
+    <File name="hwversions/hw_49.c" path="hwconf/hw_49.c" type="1"/>
+    <File name="OS/chmboxes.c" path="ChibiOS_3.0.5/os/rt/src/chmboxes.c" type="1"/>
+    <File name="OS/HAL/osal.h" path="ChibiOS_3.0.5/os/hal/osal/rt/osal.h" type="1"/>
+    <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
+    <File name="OS/HAL/pal.c" path="ChibiOS_3.0.5/os/hal/src/pal.c" type="1"/>
+    <File name="OS/HAL/mac.c" path="ChibiOS_3.0.5/os/hal/src/mac.c" type="1"/>
+    <File name="OS/HAL/stm32_registry.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_registry.h" type="1"/>
+    <File name="OS/HAL/adc.h" path="ChibiOS_3.0.5/os/hal/include/adc.h" type="1"/>
+    <File name="OS/HAL/mii.h" path="ChibiOS_3.0.5/os/hal/include/mii.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_can.h" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/inc/stm32f4xx_can.h" type="1"/>
+    <File name="packet.c" path="packet.c" type="1"/>
+    <File name="OS/STM/misc.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/misc.c" type="1"/>
+    <File name="OS/STM/sdc_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/sdc_lld.c" type="1"/>
+    <File name="OS/HAL/pwm.c" path="ChibiOS_3.0.5/os/hal/src/pwm.c" type="1"/>
+    <File name="OS/chtm.h" path="ChibiOS_3.0.5/os/rt/include/chtm.h" type="1"/>
+    <File name="OS/HAL/adc.c" path="ChibiOS_3.0.5/os/hal/src/adc.c" type="1"/>
+    <File name="OS/HAL/osal.c" path="ChibiOS_3.0.5/os/hal/osal/rt/osal.c" type="1"/>
+    <File name="OS/STM/stm32_dma.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_dma.h" type="1"/>
+    <File name="crc.h" path="crc.h" type="1"/>
+    <File name="OS/STM/ext_lld_isr.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/ext_lld_isr.c" type="1"/>
+    <File name="OS/HAL/dac.h" path="ChibiOS_3.0.5/os/hal/include/dac.h" type="1"/>
+    <File name="encoder.h" path="encoder.h" type="1"/>
+    <File name="OS/chregistry.c" path="ChibiOS_3.0.5/os/rt/src/chregistry.c" type="1"/>
+    <File name="NRF/rfhelp.c" path="nrf/rfhelp.c" type="1"/>
+    <File name="OS/HAL/rtc.h" path="ChibiOS_3.0.5/os/hal/include/rtc.h" type="1"/>
+    <File name="OS/HAL/memstreams.c" path="ChibiOS_3.0.5/os/hal/lib/streams/memstreams.c" type="1"/>
+    <File name="OS/HAL/cmparams.h" path="ChibiOS_3.0.5/os/common/ports/ARMCMx/devices/STM32F4xx/cmparams.h" type="1"/>
+    <File name="app.h" path="applications/app.h" type="1"/>
+    <File name="OS/chmtx.h" path="ChibiOS_3.0.5/os/rt/include/chmtx.h" type="1"/>
+    <File name="OS/HAL/nullstreams.c" path="ChibiOS_3.0.5/os/hal/lib/streams/nullstreams.c" type="1"/>
+    <File name="OS/chsem.c" path="ChibiOS_3.0.5/os/rt/src/chsem.c" type="1"/>
+    <File name="hwversions/hw_49.h" path="hwconf/hw_49.h" type="1"/>
+    <File name="OS/HAL/mac.h" path="ChibiOS_3.0.5/os/hal/include/mac.h" type="1"/>
+    <File name="mcpwm.c" path="mcpwm.c" type="1"/>
+    <File name="OS/STM/stm32f4xx_pwr.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_pwr.c" type="1"/>
+    <File name="OS/HAL/hal_streams.h" path="ChibiOS_3.0.5/os/hal/include/hal_streams.h" type="1"/>
+    <File name="OS/chmempools.h" path="ChibiOS_3.0.5/os/rt/include/chmempools.h" type="1"/>
+    <File name="OS/HAL/serial_usb.h" path="ChibiOS_3.0.5/os/hal/include/serial_usb.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_adc.h" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/inc/stm32f4xx_adc.h" type="1"/>
+    <File name="cmsis/arm_const_structs.h" path="ChibiOS_3.0.5/os/ext/CMSIS/include/arm_const_structs.h" type="1"/>
+    <File name="OS/chmempools.c" path="ChibiOS_3.0.5/os/rt/src/chmempools.c" type="1"/>
+    <File name="OS/chbsem.h" path="ChibiOS_3.0.5/os/rt/include/chbsem.h" type="1"/>
+    <File name="cmsis_os/cmsis_os.c" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/cmsis_os/cmsis_os.c" type="1"/>
+    <File name="cmsis_boot/startup/crt0_v7m.S" path="ChibiOS_3.0.5/os/common/ports/ARMCMx/compilers/GCC/crt0_v7m.S" type="1"/>
+    <File name="OS/HAL/nullstreams.h" path="ChibiOS_3.0.5/os/hal/lib/streams/nullstreams.h" type="1"/>
+    <File name="utils.h" path="utils.h" type="1"/>
+    <File name="OS/HAL/hal_ioblock.h" path="ChibiOS_3.0.5/os/hal/include/hal_ioblock.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_dma.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_dma.c" type="1"/>
+    <File name="OS/chtm.c" path="ChibiOS_3.0.5/os/rt/src/chtm.c" type="1"/>
+    <File name="OS/chvt.c" path="ChibiOS_3.0.5/os/rt/src/chvt.c" type="1"/>
+    <File name="mcpwm.h" path="mcpwm.h" type="1"/>
+    <File name="OS/STM/ext_lld_isr.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/ext_lld_isr.h" type="1"/>
+    <File name="OSVarious/evtimer.h" path="ChibiOS_3.0.5/os/various/evtimer.h" type="1"/>
+    <File name="OS/chmboxes.h" path="ChibiOS_3.0.5/os/rt/include/chmboxes.h" type="1"/>
+    <File name="OS/HAL/hal_queues.c" path="ChibiOS_3.0.5/os/hal/src/hal_queues.c" type="1"/>
+    <File name="wwdog.h" path="wwdog.h" type="1"/>
+    <File name="OS/STM/stm32_usb.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/USBv1/stm32_usb.h" type="1"/>
+    <File name="mcpwm_foc.c" path="mcpwm_foc.c" type="1"/>
+    <File name="OS/chsem.h" path="ChibiOS_3.0.5/os/rt/include/chsem.h" type="1"/>
+    <File name="led_external.c" path="led_external.c" type="1"/>
+    <File name="OS/HAL/uart.h" path="ChibiOS_3.0.5/os/hal/include/uart.h" type="1"/>
+    <File name="NRF/nrf_driver.h" path="nrf/nrf_driver.h" type="1"/>
+    <File name="OS/chcond.h" path="ChibiOS_3.0.5/os/rt/include/chcond.h" type="1"/>
+    <File name="servo_dec.h" path="servo_dec.h" type="1"/>
+    <File name="OS/STM" path="" type="2"/>
+    <File name="ld_eeprom_emu.ld" path="ld_eeprom_emu.ld" type="1"/>
+    <File name="hwversions/hw_48.h" path="hwconf/hw_48.h" type="1"/>
+    <File name="OS/STM/can_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/can_lld.c" type="1"/>
+    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_tim.h" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/inc/stm32f4xx_tim.h" type="1"/>
+    <File name="OS/HAL/chprintf.h" path="ChibiOS_3.0.5/os/hal/lib/streams/chprintf.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_adc.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_adc.c" type="1"/>
+    <File name="cmsis/arm_common_tables.h" path="ChibiOS_3.0.5/os/ext/CMSIS/include/arm_common_tables.h" type="1"/>
+    <File name="eeprom.c" path="eeprom.c" type="1"/>
+    <File name="hwversions/drv8301.h" path="hwconf/drv8301.h" type="1"/>
+    <File name="servo.c" path="servo.c" type="1"/>
+    <File name="crc.c" path="crc.c" type="1"/>
+    <File name="servo_simple.h" path="servo_simple.h" type="1"/>
+    <File name="OS/STM/adc_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/adc_lld.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_syscfg.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_syscfg.c" type="1"/>
+    <File name="can_esc32.c" path="can_esc32.c" type="1"/>
+    <File name="irq_handlers.c" path="irq_handlers.c" type="1"/>
+    <File name="OS/STM/uart_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/USARTv1/uart_lld.h" type="1"/>
+    <File name="ledpwm.h" path="ledpwm.h" type="1"/>
+    <File name="NRF/rfhelp.h" path="nrf/rfhelp.h" type="1"/>
+    <File name="utils.c" path="utils.c" type="1"/>
+    <File name="OS/HAL/nvic.h" path="ChibiOS_3.0.5/os/hal/ports/common/ARMCMx/nvic.h" type="1"/>
+    <File name="comm_usb.c" path="comm_usb.c" type="1"/>
+    <File name="OS/HAL/board.h" path="ChibiOS_3.0.5/os/hal/boards/STM32F405_BLDC_Board/board.h" type="1"/>
+    <File name="OS/chcond.c" path="ChibiOS_3.0.5/os/rt/src/chcond.c" type="1"/>
+    <File name="servo_simple.c" path="servo_simple.c" type="1"/>
+    <File name="OS/HAL/ext.h" path="ChibiOS_3.0.5/os/hal/include/ext.h" type="1"/>
+    <File name="eeprom.h" path="eeprom.h" type="1"/>
+    <File name="OS/chcore_v7m.c" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/chcore_v7m.c" type="1"/>
+    <File name="OSVarious/syscalls.c" path="ChibiOS_3.0.5/os/various/syscalls.c" type="1"/>
+    <File name="ws2811.c" path="ws2811.c" type="1"/>
+    <File name="comm_usb.h" path="comm_usb.h" type="1"/>
+    <File name="led_external.h" path="led_external.h" type="1"/>
+    <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
+    <File name="servo.h" path="servo.h" type="1"/>
+    <File name="appconf_default.h" path="appconf/appconf_default.h" type="1"/>
+    <File name="cmsis/core_cmInstr.h" path="ChibiOS_3.0.5/os/ext/CMSIS/include/core_cmInstr.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_rcc.h" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/inc/stm32f4xx_rcc.h" type="1"/>
+    <File name="OS/STM/can_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/can_lld.h" type="1"/>
+    <File name="OS/HAL/chprintf.c" path="ChibiOS_3.0.5/os/hal/lib/streams/chprintf.c" type="1"/>
+    <File name="OSVarious/shell.c" path="ChibiOS_3.0.5/os/various/shell.c" type="1"/>
+    <File name="OS/chmsg.c" path="ChibiOS_3.0.5/os/rt/src/chmsg.c" type="1"/>
+    <File name="OS/chdebug.h" path="ChibiOS_3.0.5/os/rt/include/chdebug.h" type="1"/>
+    <File name="OS/HAL/gpt.h" path="ChibiOS_3.0.5/os/hal/include/gpt.h" type="1"/>
+    <File name="OS/STM/ext_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/ext_lld.c" type="1"/>
+    <File name="hwversions" path="" type="2"/>
+    <File name="ledpwm.c" path="ledpwm.c" type="1"/>
+    <File name="OS/STM/stm32f4xx_exti.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_exti.c" type="1"/>
+    <File name="OS/STM/uart_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/USARTv1/uart_lld.c" type="1"/>
+    <File name="OS/HAL/ext.c" path="ChibiOS_3.0.5/os/hal/src/ext.c" type="1"/>
+    <File name="OS/chstats.c" path="ChibiOS_3.0.5/os/rt/src/chstats.c" type="1"/>
+    <File name="OS/HAL/uart.c" path="ChibiOS_3.0.5/os/hal/src/uart.c" type="1"/>
+    <File name="OS/HAL/spi.h" path="ChibiOS_3.0.5/os/hal/include/spi.h" type="1"/>
+    <File name="OS/HAL/hal_files.h" path="ChibiOS_3.0.5/os/hal/include/hal_files.h" type="1"/>
+    <File name="cmsis" path="" type="2"/>
+    <File name="servo_dec.c" path="servo_dec.c" type="1"/>
+    <File name="OS/HAL/spi.c" path="ChibiOS_3.0.5/os/hal/src/spi.c" type="1"/>
+    <File name="OS/chdynamic.c" path="ChibiOS_3.0.5/os/rt/src/chdynamic.c" type="1"/>
+    <File name="hwversions/hw.h" path="hwconf/hw.h" type="1"/>
+    <File name="OS/chcore_v7m.h" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/chcore_v7m.h" type="1"/>
+    <File name="OS/HAL/nvic.c" path="ChibiOS_3.0.5/os/hal/ports/common/ARMCMx/nvic.c" type="1"/>
+    <File name="OS/HAL/i2s.h" path="ChibiOS_3.0.5/os/hal/include/i2s.h" type="1"/>
+    <File name="OSVarious/shell.h" path="ChibiOS_3.0.5/os/various/shell.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_tim.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_tim.c" type="1"/>
+    <File name="OS/HAL/gpt.c" path="ChibiOS_3.0.5/os/hal/src/gpt.c" type="1"/>
+    <File name="comm_usb_serial.h" path="comm_usb_serial.h" type="1"/>
+    <File name="OS/chdebug.c" path="ChibiOS_3.0.5/os/rt/src/chdebug.c" type="1"/>
+    <File name="OS/STM/ext_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/ext_lld.h" type="1"/>
+    <File name="OS/STM/adc_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/adc_lld.c" type="1"/>
+    <File name="OS/HAL/hal_channels.h" path="ChibiOS_3.0.5/os/hal/include/hal_channels.h" type="1"/>
+    <File name="cmsis_os/cmsis_os.h" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/cmsis_os/cmsis_os.h" type="1"/>
+    <File name="hwversions/hw_48.c" path="hwconf/hw_48.c" type="1"/>
+    <File name="hwversions/hw_46.c" path="hwconf/hw_46.c" type="1"/>
+    <File name="OS/chdynamic.h" path="ChibiOS_3.0.5/os/rt/include/chdynamic.h" type="1"/>
+    <File name="hwversions/hw_410.c" path="hwconf/hw_410.c" type="1"/>
+    <File name="flash_helper.c" path="flash_helper.c" type="1"/>
+    <File name="OS/HAL/icu.c" path="ChibiOS_3.0.5/os/hal/src/icu.c" type="1"/>
+    <File name="OS/chthreads.h" path="ChibiOS_3.0.5/os/rt/include/chthreads.h" type="1"/>
+    <File name="OS/STM/spi_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/SPIv1/spi_lld.c" type="1"/>
+    <File name="OS/chsys.h" path="ChibiOS_3.0.5/os/rt/include/chsys.h" type="1"/>
+    <File name="NRF/rf.h" path="nrf/rf.h" type="1"/>
+    <File name="OS/chmemcore.h" path="ChibiOS_3.0.5/os/rt/include/chmemcore.h" type="1"/>
+    <File name="hwversions/hw_victor_r1a.c" path="hwconf/hw_victor_r1a.c" type="1"/>
+    <File name="OS/STM/hal_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/hal_lld.c" type="1"/>
+    <File name="OS/STM/i2c_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/I2Cv1/i2c_lld.c" type="1"/>
+    <File name="hwversions/hw_40.c" path="hwconf/hw_40.c" type="1"/>
+    <File name="OS/HAL/can.h" path="ChibiOS_3.0.5/os/hal/include/can.h" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
+    <File name="cmsis/core_cm4.h" path="ChibiOS_3.0.5/os/ext/CMSIS/include/core_cm4.h" type="1"/>
+    <File name="OS/STM/serial_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/USARTv1/serial_lld.h" type="1"/>
+    <File name="OS/chlicense.h" path="ChibiOS_3.0.5/os/rt/include/chlicense.h" type="1"/>
+    <File name="OS/HAL/sdc.h" path="ChibiOS_3.0.5/os/hal/include/sdc.h" type="1"/>
+    <File name="OS/HAL/i2c.h" path="ChibiOS_3.0.5/os/hal/include/i2c.h" type="1"/>
+    <File name="comm_usb_serial.c" path="comm_usb_serial.c" type="1"/>
+    <File name="cmsis/arm_math.h" path="ChibiOS_3.0.5/os/ext/CMSIS/include/arm_math.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_rcc.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_rcc.c" type="1"/>
+    <File name="hwversions/hw_victor_r1a.h" path="hwconf/hw_victor_r1a.h" type="1"/>
+    <File name="OS/HAL/i2s.c" path="ChibiOS_3.0.5/os/hal/src/i2s.c" type="1"/>
+    <File name="OS/STM/stm32f4xx_flash.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_flash.c" type="1"/>
+    <File name="OS/chsys.c" path="ChibiOS_3.0.5/os/rt/src/chsys.c" type="1"/>
+    <File name="OS/chsystypes.h" path="ChibiOS_3.0.5/os/rt/include/chsystypes.h" type="1"/>
+    <File name="OS/STM/hal_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/hal_lld.h" type="1"/>
+    <File name="OS/HAL" path="" type="2"/>
+    <File name="OS/HAL/mmc_spi.c" path="ChibiOS_3.0.5/os/hal/src/mmc_spi.c" type="1"/>
+    <File name="OS/HAL/icu.h" path="ChibiOS_3.0.5/os/hal/include/icu.h" type="1"/>
+    <File name="hwversions/hw_46.h" path="hwconf/hw_46.h" type="1"/>
+    <File name="OS/chcore.h" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/chcore.h" type="1"/>
+    <File name="comm_can.h" path="comm_can.h" type="1"/>
+    <File name="chconf.h" path="chconf.h" type="1"/>
+    <File name="OS/chmemcore.c" path="ChibiOS_3.0.5/os/rt/src/chmemcore.c" type="1"/>
+    <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
+    <File name="OS/HAL/st.h" path="ChibiOS_3.0.5/os/hal/include/st.h" type="1"/>
+    <File name="OS/STM/stm32f4xx_rtc.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_rtc.c" type="1"/>
+    <File name="OS/STM/i2c_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/I2Cv1/i2c_lld.h" type="1"/>
+    <File name="OS/chmsg.h" path="ChibiOS_3.0.5/os/rt/include/chmsg.h" type="1"/>
+    <File name="OS/chstats.h" path="ChibiOS_3.0.5/os/rt/include/chstats.h" type="1"/>
+    <File name="OS/ch.h" path="ChibiOS_3.0.5/os/rt/include/ch.h" type="1"/>
+    <File name="OS/chcore.c" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/chcore.c" type="1"/>
+    <File name="OS/HAL/sdc.c" path="ChibiOS_3.0.5/os/hal/src/sdc.c" type="1"/>
+    <File name="mc_interface.c" path="mc_interface.c" type="1"/>
+    <File name="OS/STM/stm32f4xx_spi.h" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/inc/stm32f4xx_spi.h" type="1"/>
+    <File name="ws2811.h" path="ws2811.h" type="1"/>
+    <File name="OS/STM/gpt_lld.c" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/TIMv1/gpt_lld.c" type="1"/>
+    <File name="buffer.h" path="buffer.h" type="1"/>
+    <File name="OS/STM/stm32_isr.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_isr.h" type="1"/>
+    <File name="OS/HAL/mmc_spi.h" path="ChibiOS_3.0.5/os/hal/include/mmc_spi.h" type="1"/>
+    <File name="OS/chmtx.c" path="ChibiOS_3.0.5/os/rt/src/chmtx.c" type="1"/>
+    <File name="hwversions/hw_410.h" path="hwconf/hw_410.h" type="1"/>
+    <File name="flash_helper.h" path="flash_helper.h" type="1"/>
+    <File name="cmsis_boot/startup/vectors.c" path="ChibiOS_3.0.5/os/common/ports/ARMCMx/compilers/GCC/vectors.c" type="1"/>
+    <File name="OS/HAL/st.c" path="ChibiOS_3.0.5/os/hal/src/st.c" type="1"/>
+    <File name="hwversions/hw_tom_v1.h" path="hwconf/hw_tom_v1.h" type="1"/>
+    <File name="OS/STM/spi_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/SPIv1/spi_lld.h" type="1"/>
+    <File name="OSVarious" path="" type="2"/>
+    <File name="OS/HAL/stm32_rcc.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/STM32F4xx/stm32_rcc.h" type="1"/>
+    <File name="mc_interface.h" path="mc_interface.h" type="1"/>
+    <File name="OS/HAL/serial_usb.c" path="ChibiOS_3.0.5/os/hal/src/serial_usb.c" type="1"/>
+    <File name="OS/HAL/can.c" path="ChibiOS_3.0.5/os/hal/src/can.c" type="1"/>
+    <File name="OS/chthreads.c" path="ChibiOS_3.0.5/os/rt/src/chthreads.c" type="1"/>
+    <File name="comm_can.c" path="comm_can.c" type="1"/>
+    <File name="stm32f4xx_conf.h" path="stm32f4xx_conf.h" type="1"/>
+    <File name="mcconf_default.h" path="mcconf/mcconf_default.h" type="1"/>
+    <File name="can_esc32.h" path="can_esc32.h" type="1"/>
+    <File name="cmsis_os" path="" type="2"/>
+    <File name="hwversions/hw_tom_v1.c" path="hwconf/hw_tom_v1.c" type="1"/>
+    <File name="NRF/spi_sw.h" path="nrf/spi_sw.h" type="1"/>
+    <File name="OS/chcoreasm_v7m.S" path="ChibiOS_3.0.5/os/rt/ports/ARMCMx/compilers/GCC/chcoreasm_v7m.S" type="1"/>
+    <File name="OS/HAL/board.c" path="ChibiOS_3.0.5/os/hal/boards/STM32F405_BLDC_Board/board.c" type="1"/>
+    <File name="OS/STM/stm32f4xx_spi.c" path="ChibiOS_3.0.5/ext/stdperiph_stm32f4/src/stm32f4xx_spi.c" type="1"/>
+    <File name="NRF/nrf_driver.c" path="nrf/nrf_driver.c" type="1"/>
+    <File name="OS/STM/gpt_lld.h" path="ChibiOS_3.0.5/os/hal/ports/STM32/LLD/TIMv1/gpt_lld.h" type="1"/>
+    <File name="buffer.c" path="buffer.c" type="1"/>
+  </Files>
+</Project>
